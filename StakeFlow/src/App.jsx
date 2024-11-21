@@ -4,7 +4,7 @@ import Ethers from "./utils/Ethers";
 import StakeHeading from "./component/StakeHeading";
 import Stake from "./component/Stake";
 import Withdrawal from "./component/Withdrawal";
-import RewardSection from "./component/Rewardsection";
+import RewardSection from "./component/RewardSection";
 
 function App() {
   const [toggle, setToggle] = useState(true);
