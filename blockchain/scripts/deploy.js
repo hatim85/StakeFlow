@@ -5,7 +5,7 @@ async function main() {
   // // Deploy RewardXFI
   console.log("Deploying RewardXFI...");
   const RewardXFI = await hre.ethers.getContractFactory("RewardXFI");
-  const rewardXFI = await RewardXFI.deploy(1000000); // Initial supply as 1,000,000
+  const rewardXFI = await RewardXFI.deploy(100000); // Initial supply as 1,000,000
   await rewardXFI.waitForDeployment();
   console.log("RewardXFI deployed to:", rewardXFI.target);
 
@@ -27,7 +27,7 @@ async function main() {
   console.log("Approving Staking contract to spend RewardXFI...");
   const signer = (await hre.ethers.getSigners())[0]; // Get the first signer (deployer)
 
-  const rewardXFIAllowanceTx = await rewardXFI.connect(signer).approve(staking.target, 1000000); // Approve full supply
+  const rewardXFIAllowanceTx = await rewardXFI.connect(signer).approve(staking.target, 100000); // Approve full supply
   await rewardXFIAllowanceTx.wait(); // Wait for transaction to be mined
   console.log(`Approved Staking contract to spend RewardXFI tokens`);
 

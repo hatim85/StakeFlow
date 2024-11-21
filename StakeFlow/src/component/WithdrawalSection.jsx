@@ -5,7 +5,7 @@ const WithdrawalSection = ({ stakedAmount, rewardAmount, withdrawAmount, setWith
         <div>
             <div>
                 <h3>Staked Amount: {stakedAmount} stXFI</h3>
-                <h3>Current Rewards: {rewardAmount} XFI</h3>
+                 {rewardAmount==0 ? "" : `Reward Amount: ${rewardAmount} rwXFI`} 
             </div>
 
             <div className="mt-4">

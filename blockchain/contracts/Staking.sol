@@ -45,13 +45,13 @@ contract Staking is Ownable {
         _;
     }
 
-    // Stake Xfi, receive stXFI tokens
+    // Stake Xfi, receive stXFI tokens (100 stXFI per 1 Xfi)
     function stake(uint256 amount) external payable updateReward(msg.sender) {
         require(amount > 0, "Amount must be greater than zero");
-        // require(msg.value == amount, "Incorrect Xfi value sent");
+        require(msg.value == amount, "Incorrect Xfi value sent");
 
-        // Mint stXFI tokens to the user in proportion to the amount of Xfi staked
-        uint256 stXFIAmount = amount; // Here we assume 1 ETH = 1 stXFI for simplicity
+        // Mint stXFI tokens to the user (100 stXFI per 1 Xfi)
+        uint256 stXFIAmount = amount * 100; // Update the exchange rate
         stXFIToken.mint(msg.sender, stXFIAmount);
 
         // Store staking information
@@ -96,8 +96,8 @@ contract Staking is Ownable {
         // Deduct staked amount from user's balance
         stakes[msg.sender].amount -= stXFIAmount;
 
-        // Calculate the Xfi amount to return
-        uint256 xfiAmount = stXFIAmount; // Assuming 1 stXFI = 1 Xfi
+        // Calculate the Xfi amount to return (1 stXFI = 1/100 Xfi)
+        uint256 xfiAmount = stXFIAmount / 100;
         require(
             address(this).balance >= xfiAmount,
             "Contract has insufficient Xfi"
@@ -121,6 +121,21 @@ contract Staking is Ownable {
     function updateRewardPercentage(uint256 newPercentage) external onlyOwner {
         rewardPercentage = newPercentage;
         emit RewardPercentageUpdated(newPercentage);
+    }
+
+    // Get contract balances for stXFI, rwXFI, and Xfi
+    function getContractBalances()
+        external
+        view
+        returns (
+            uint256 stXFIBalance,
+            uint256 rwXFIBalance,
+            uint256 xfiBalance
+        )
+    {
+        stXFIBalance = stXFIToken.balanceOf(address(this));
+        rwXFIBalance = rwXFIToken.balanceOf(address(this));
+        xfiBalance = address(this).balance;
     }
 
     // Allow the contract to accept Xfi if needed (for staking xfi)

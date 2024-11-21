@@ -2,7 +2,7 @@ const StakeHeading = () => {
   return (
     <div>
       <div className=" w-96    flex  gap-8  ">
-        <img src="../../EthereumLogo.svg" className=" h-19 w-10" alt="no-image" />
+        <img src="../../public/CrossfiLogoHeader.png" className=" h-19 w-20" alt="no-image" />
        
 
         <div>
