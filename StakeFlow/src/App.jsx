@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import Ethers from "./utils/Ethers";
-import StakeHeading from "./component/stakeHeading";
+import StakeHeading from "./component/StakeHeading";
 import Stake from "./component/Stake";
 import Withdrawal from "./component/Withdrawal";
 import RewardSection from "./component/Rewardsection";
