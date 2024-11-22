@@ -2,7 +2,7 @@ const StakeHeading = () => {
   return (
     <div>
       <div className=" w-96    flex  gap-8  ">
-        <img src="../../public/CrossfiLogoHeader.png" className=" h-19 w-20" alt="no-image" />
+        <img src="../../CrossfiLogoHeader.png" className=" h-19 w-20" alt="no-image" />
        
 
         <div>

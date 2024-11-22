@@ -100,7 +100,7 @@ const Stake = () => {
       <div className="rounded-full">
         <div className="flex flex-col gap-10">
           <div className="flex justify-center bg-custom-mid-dark-purple p-2 rounded-xl">
-            <h2 className="text-lg flex flex-row font-bold text-white">Stake on  <img src="../../public/CrossfiLogo.png" alt="crossfi" className="w-[30px] h-[30px]"/> CrossFi</h2>
+            <h2 className="text-lg flex flex-row font-bold text-white">Stake on  <img src="../../CrossfiLogo.png" alt="crossfi" className="w-[30px] h-[30px]"/> CrossFi</h2>
           </div>
 
           <div>

@@ -120,7 +120,7 @@ const Withdrawal = ({ walletAddress }) => {
           <div className="flex flex-col gap-10">
             <div className="flex justify-center bg-custom-mid-dark-purple p-2 rounded-xl">
               <div className="flex">
-                Stake on <img src="../../public/CrossfiLogo.png" alt="crossfi" className="w-[30px] h-[30px]" /> <div> CrossFi</div>
+                Stake on <img src="../../CrossfiLogo.png" alt="crossfi" className="w-[30px] h-[30px]" /> <div> CrossFi</div>
               </div>
             </div>
 
